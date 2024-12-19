@@ -9,10 +9,14 @@ bool isPrime(int n) {
     return true;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     int number;
-    cout << "Enter a number: ";
-    cin >> number;
+    if (argc > 1) {
+        number = atoi(argv[1]);
+    } else {
+        cout << "Enter a number: ";
+        cin >> number;
+    }
 
     if (isPrime(number)) {
         cout << number << " is a prime number." << endl;
