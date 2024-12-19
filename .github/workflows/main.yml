@@ -1,0 +1,26 @@
+name: C++ Prime CI
+
+on:
+  workflow_dispatch: # Allows manual triggering of the workflow.
+    inputs:
+      number:
+        description: 'Enter a number to print it if its odd'
+        required: true
+        default: '5'  # This will be the default input if not provided
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Use a Linux-based virtual machine.
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install g++
+      run: sudo apt-get install -y g++
+
+    - name: Compile C++ code
+      run: g++ odd.cpp -o prime
+
+    - name: Run compiled program with dynamic input
+      run: ./prime ${{ inputs.number }}
