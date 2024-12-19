@@ -2,6 +2,11 @@ name: C++ CI
 
 on:
   workflow_dispatch: # Allows manual triggering of the workflow.
+    inputs:
+      number:
+        description: 'Enter a number to calculate the sum of first n natural numbers'
+        required: true
+        default: '5'  # This will be the default input if not provided
 
 jobs:
   build:
@@ -18,8 +23,4 @@ jobs:
       run: g++ sum.cpp -o sum
 
     - name: Run compiled program with dynamic input
-      run: ./sum $NUMBER
-
-    # Define an environment variable for the input
-    env:
-      NUMBER: ${{ github.event.inputs.number || 5 }}  # Set default to 5 if not provided
+      run: ./sum ${{ inputs.number }}
