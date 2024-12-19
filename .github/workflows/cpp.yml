@@ -1,14 +1,11 @@
 name: C++ CI
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+  workflow_dispatch: # Allows manual triggering of the workflow.
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Use a Linux-based virtual machine.
 
     steps:
     - name: Checkout code
@@ -18,7 +15,7 @@ jobs:
       run: sudo apt-get install -y g++
 
     - name: Compile C++ code
-      run: g++ sum_of_natural_numbers.cpp -o sum
+      run: g++ sum.cpp -o sum
 
     - name: Run compiled program
-      run: ./sum
+      run: echo "5" | ./sum
