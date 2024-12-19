@@ -23,4 +23,4 @@ jobs:
       run: g++ odd.cpp -o odd
 
     - name: Run compiled program with dynamic input
-      run: ./prime ${{ inputs.number }}
+      run: ./odd ${{ inputs.number }}
