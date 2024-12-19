@@ -1,4 +1,4 @@
-name: C++ Prime CI
+name: C++ Odd CI
 
 on:
   workflow_dispatch: # Allows manual triggering of the workflow.
