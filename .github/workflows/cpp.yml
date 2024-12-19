@@ -17,5 +17,11 @@ jobs:
     - name: Compile C++ code
       run: g++ sum.cpp -o sum
 
-    - name: Run compiled program
-      run: echo "5" | ./sum
+    - name: Run compiled program with dynamic input
+      run: ./sum ${{ inputs.number }}
+
+inputs:
+  number:
+    description: 'Enter a number to calculate the sum of first n natural numbers'
+    required: true
+    default: '5'  # This will be the default input if not provided
