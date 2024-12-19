@@ -23,4 +23,4 @@ jobs:
       run: g++ sum.cpp -o sum
 
     - name: Run compiled program with dynamic input
-      run: ./sum ${{ inputs.number }}
+      run: echo ${{ github.event.inputs.number }} | ./sum
