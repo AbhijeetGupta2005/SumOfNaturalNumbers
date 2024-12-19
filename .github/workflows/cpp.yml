@@ -18,10 +18,8 @@ jobs:
       run: g++ sum.cpp -o sum
 
     - name: Run compiled program with dynamic input
-      run: ./sum ${{ inputs.number }}
+      run: ./sum $NUMBER
 
-inputs:
-  number:
-    description: 'Enter a number to calculate the sum of first n natural numbers'
-    required: true
-    default: '5'  # This will be the default input if not provided
+    # Define an environment variable for the input
+    env:
+      NUMBER: ${{ github.event.inputs.number || 5 }}  # Set default to 5 if not provided
