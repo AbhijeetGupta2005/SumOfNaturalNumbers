@@ -4,7 +4,7 @@ on:
   workflow_dispatch: # Allows manual triggering of the workflow.
     inputs:
       number:
-        description: 'Enter a number to print it if its odd'
+        description: 'Enter a number to print all odd numbers less than it'
         required: true
         default: '5'  # This will be the default input if not provided
 
