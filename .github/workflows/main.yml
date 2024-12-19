@@ -20,7 +20,7 @@ jobs:
       run: sudo apt-get install -y g++
 
     - name: Compile C++ code
-      run: g++ odd.cpp -o prime
+      run: g++ odd.cpp -o odd
 
     - name: Run compiled program with dynamic input
       run: ./prime ${{ inputs.number }}
